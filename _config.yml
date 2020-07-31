@@ -210,7 +210,6 @@ pagination: # jekyll-paginate-v2 settings
 timezone: "Asia/Shanghai" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
-collections_dir: pages
 collections:
   wiki:
     output: true
