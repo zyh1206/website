@@ -5,7 +5,7 @@ categories: [Tech Tutorial]
 tags: [Geant4]
 ---
 
-本文用于分享本人在使用 Ubuntu 系统参与科研工作时，安装 geant4 软件包的经历，希望可以为新学习者提供帮助，更好的入手专业软件的学习与应用。
+本人是新接触linux的初学者，在学习过程中接受了许多人的指导，在掌握部分知识后，希望向其他的学习者们分享一些自己的经验，本文用于分享本人在使用 Ubuntu 系统参与科研工作时，安装 geant4 软件包的经历，希望可以为新学习者提供帮助，更好的入手专业软件的学习与应用。
 
 ## 安装 Geant4
 
@@ -14,7 +14,7 @@ tags: [Geant4]
 1. 进入 Ubuntu 系统，登陆后在桌面上进入终端，修改 apt 源
 
    ```bash
-   sudo sed -i 's/cn.archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+   sudo sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list
    ```
 
    进行更新
@@ -23,7 +23,7 @@ tags: [Geant4]
    sudo apt update
    ```
 
-   安装工具并重启，便于今后的科研任务
+   安装VM工具并重启，便于今后的科研任务
 
    ```bash
    sudo apt install open-vm-tools-desktop -y
@@ -31,7 +31,7 @@ tags: [Geant4]
    ```
 
 2. 下载并安装
-   geant4 的资源可以在 <https://geant4.web.cern.ch/download/11.2.1.html> 中下载得到，如果工具正常安装，可以将 Windows 文件转移到虚拟机中
+   geant4 的资源可以在 <https://geant4.web.cern.ch/download/11.2.1.html> 中下载，如果VM工具正常安装，可以将 Windows 文件转移到虚拟机中，考虑到网速问题建议在Windows下载资源再转移到虚拟机中
 
    1. 转移文件
 
@@ -51,7 +51,7 @@ tags: [Geant4]
    3. 安装依赖工具
 
       ```bash
-      sudo apt install curl g++ libgl1-mesa-dev cmake libx11-dev libxext-dev libxtst-dev libxrender-dev libxmu-dev  libxmuu-dev libhdf5-serial-dev hdf5-tools libexpat1 libexpat1-dev build-essential -y
+      sudo apt install curl g++ libgl1-mesa-dev cmake libx11-dev libxext-dev libxtst-dev libxrender-dev libxmu-dev libxmuu-dev libhdf5-serial-dev hdf5-tools libexpat1 libexpat1-dev build-essential -y
       sudo apt install qt5* -y
       ```
 
@@ -76,7 +76,7 @@ tags: [Geant4]
       sudo make install -j8
       ```
 
-   6. 设置环境
+   6. 设置环境（假定在个人电脑上安装）
 
       ```bash
       sudo gedit ~/.bashrc
@@ -109,7 +109,7 @@ tags: [Geant4]
 
    ```bash
    cd /opt/geant4/geant4-install/share/Geant4-11.0.0/data
-   sudo ls *.tar.gz | sudo xargs -n1 tar xzvf
+    ls *.tar.gz | sudo xargs -n1 tar xzvf
    ```
 
    最后删除数据包
